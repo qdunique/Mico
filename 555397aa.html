@@ -23,13 +23,13 @@
 	padding:10px;
 	background-color:#EEE;
 }
-#file-list{
+#file-list {
 	list-style:none;
 }
 #file-list li div {
 	height: 35px;
-    border-bottom: 1px dotted #CCC;
-    line-height: 35px;
+	border-bottom: 1px dotted #CCC;
+	line-height: 35px;
 }
 </style>
 </head>
@@ -355,10 +355,10 @@
 				index=0;
 			}
 			for(var i=0;i<alist.length;i++){
-				var fileName=alist[i].trim();
+				var fileName=getFileName(alist[i].trim());
 				$("#file-list ul").append("<li><div data-role=\"collapsible\" data-collapsed=\"true\"><span name=\"filename\">"+fileName+"</span><a name=\"printfile"+index+"\" style=\"float:right;\">打印</a></div></li>");
 				$("a[name='printfile"+index+"']").bind('click',{name:fileName},function(e){
-						var fileName=e.data.name; 
+						var fileName=e.data.name;
 						printFile(fileName);
 				});
 				index++;

@@ -23,12 +23,17 @@ function getReturnCommond(message){
 
 //获取文件名称
 function getFileName(value){
-	value=value.substr(2*3,2*(parseInt(value.substr(2*1,2),16)-1));
+	//value=value.substr(2*3,2*(parseInt(value.substr(2*1,2),16)-1));
 	var fileName="";
-	for(var i=0;i<value.length;i=i+2){
-		fileName+=String.fromCharCode(parseInt(value.substr(i,2),16));
+	for(var i=0;i<value.length;i=i+2){		
+		if(parseInt(value.substr(i,2),10)>parseInt("80",10)){
+			fileName+=String.fromCharCode(parseInt(value.substr(i,4),16));
+			i=i+2;
+		}else{
+			fileName+=String.fromCharCode(parseInt(value.substr(i,2),16));
+		}
 	}
-	return fileName;
+	return fileName; 
 }
 
 //文件名称转换为CRC，文件全名，带后缀
