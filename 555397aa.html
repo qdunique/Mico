@@ -355,7 +355,7 @@
 				index=0;
 			}
 			for(var i=0;i<alist.length;i++){
-				var fileName=getFileName(alist[i].trim());
+				var fileName=alist[i].trim(); 
 				$("#file-list ul").append("<li><div data-role=\"collapsible\" data-collapsed=\"true\"><span name=\"filename\">"+fileName+"</span><a name=\"printfile"+index+"\" style=\"float:right;\">打印</a></div></li>");
 				$("a[name='printfile"+index+"']").bind('click',{name:fileName},function(e){
 						var fileName=e.data.name;
